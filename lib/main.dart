@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'application/auth/auth_bloc.dart';
-import 'application/locale/locale_bloc.dart';
 import 'extra/config/configuration.dart';
 import 'extra/constants/strings.dart';
 import 'extra/injection/injection.dart';
@@ -37,10 +36,6 @@ class Application extends StatelessWidget {
         BlocProvider(
           create: (context) =>
               getIt<AuthBloc>()..add(const AuthEvent.authCheckRequested()),
-        ),
-        BlocProvider(
-          create: (context) =>
-              getIt<LocaleBloc>()..add(const LocaleEvent.getLocale()),
         ),
       ],
       child: MaterialApp(

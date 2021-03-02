@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../application/auth/auth_bloc.dart';
-import '../../application/locale/locale_bloc.dart';
 import '../../extra/langs/locale_keys.g.dart';
 import '../../extra/routes/router.gr.dart';
 import '../core/widgets/alert_helper.dart';
@@ -30,21 +29,6 @@ class SplashPage extends StatelessWidget {
                   message: LocaleKeys.signInStatusError.tr(),
                 );
                 ExtendedNavigator.of(context).replace(Routes.signInPage);
-              },
-            );
-          },
-        ),
-        BlocListener<LocaleBloc, LocaleState>(
-          listener: (context, state) {
-            state.map(
-              initial: (_) {},
-              inProgress: (_) {},
-              success: (state) => context.locale = state.locale,
-              failed: (failure) {
-                AlertHelper.showSnackBar(
-                  context,
-                  message: LocaleKeys.getCachedLocaleError.tr(),
-                );
               },
             );
           },

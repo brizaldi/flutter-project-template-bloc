@@ -15,11 +15,6 @@ abstract class Env {
         BuildConfig.init(flavor: flavor);
       }).catchError((error) {});
 
-      LicenseRegistry.addLicense(() async* {
-        final license = await rootBundle.loadString('google_fonts/OFL.txt');
-        yield LicenseEntryWithLineBreaks(['google_fonts'], license);
-      });
-
       Themes.initUiOverlayStyle();
 
       await configureDependencies();
