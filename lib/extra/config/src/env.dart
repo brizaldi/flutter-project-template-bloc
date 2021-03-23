@@ -8,6 +8,7 @@ abstract class Env {
   void _init() {
     runZonedGuarded(() async {
       WidgetsFlutterBinding.ensureInitialized();
+      await EasyLocalization.ensureInitialized();
 
       await const MethodChannel('flavor')
           .invokeMethod<String>('getFlavor')
