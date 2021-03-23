@@ -52,8 +52,8 @@ class AuthRepository implements IAuthRepository {
 
   @override
   Future<Either<AuthFailure, User>> registerWithEmailAndPassword({
-    EmailAddress emailAddress,
-    Password password,
+    required EmailAddress emailAddress,
+    required Password password,
   }) async {
     // TODO: implement registerWithEmailAndPassword
     throw UnimplementedError();
@@ -61,8 +61,8 @@ class AuthRepository implements IAuthRepository {
 
   @override
   Future<Either<AuthFailure, User>> signInWithEmailAndPassword({
-    EmailAddress emailAddress,
-    Password password,
+    required EmailAddress emailAddress,
+    required Password password,
   }) async {
     if (await _networkInfo.isConnected()) {
       try {

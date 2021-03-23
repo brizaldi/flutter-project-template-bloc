@@ -8,7 +8,7 @@ import '../../domain/core/exceptions.dart';
 import '../../extra/constants/strings.dart';
 
 abstract class IAuthLocalDataSource {
-  Future<User> getSignedInUser();
+  Future<User?> getSignedInUser();
 
   Future<void> cacheUser(User user);
 
@@ -22,7 +22,7 @@ class AuthLocalDataSource implements IAuthLocalDataSource {
   final Box _box;
 
   @override
-  Future<User> getSignedInUser() async {
+  Future<User?> getSignedInUser() async {
     try {
       final jsonStr = _box.get(Strings.user);
       if (jsonStr == null) return null;

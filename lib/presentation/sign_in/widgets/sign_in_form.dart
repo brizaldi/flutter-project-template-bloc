@@ -6,7 +6,7 @@ import '../../../application/auth/sign_in_form/sign_in_form_bloc.dart';
 import '../../../extra/langs/locale_keys.g.dart';
 
 class SignInForm extends StatelessWidget {
-  const SignInForm({Key key}) : super(key: key);
+  const SignInForm({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

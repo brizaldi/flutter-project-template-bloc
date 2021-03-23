@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'sign_out_bloc.dart';
 
@@ -9,40 +9,45 @@ part of 'sign_out_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$SignOutEventTearOff {
   const _$SignOutEventTearOff();
 
-// ignore: unused_element
   _SignedOut signedOut() {
     return const _SignedOut();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SignOutEvent = _$SignOutEventTearOff();
 
 /// @nodoc
 mixin _$SignOutEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult signedOut(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() signedOut,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult signedOut(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? signedOut,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult signedOut(_SignedOut value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SignedOut value) signedOut,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult signedOut(_SignedOut value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SignedOut value)? signedOut,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -97,20 +102,18 @@ class _$_SignedOut implements _SignedOut {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult signedOut(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() signedOut,
   }) {
-    assert(signedOut != null);
     return signedOut();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult signedOut(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? signedOut,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (signedOut != null) {
       return signedOut();
     }
@@ -119,20 +122,18 @@ class _$_SignedOut implements _SignedOut {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult signedOut(_SignedOut value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SignedOut value) signedOut,
   }) {
-    assert(signedOut != null);
     return signedOut(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult signedOut(_SignedOut value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SignedOut value)? signedOut,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (signedOut != null) {
       return signedOut(this);
     }
@@ -148,12 +149,10 @@ abstract class _SignedOut implements SignOutEvent {
 class _$SignOutStateTearOff {
   const _$SignOutStateTearOff();
 
-// ignore: unused_element
   _SignOutState call(
-      {@required
-          bool isLoading,
-      @required
-          Option<Either<AuthFailure, Unit>> signOutFailureOrSuccessOption}) {
+      {required bool isLoading,
+      required Option<Either<AuthFailure, Unit>>
+          signOutFailureOrSuccessOption}) {
     return _SignOutState(
       isLoading: isLoading,
       signOutFailureOrSuccessOption: signOutFailureOrSuccessOption,
@@ -162,16 +161,17 @@ class _$SignOutStateTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SignOutState = _$SignOutStateTearOff();
 
 /// @nodoc
 mixin _$SignOutState {
-  bool get isLoading;
-  Option<Either<AuthFailure, Unit>> get signOutFailureOrSuccessOption;
+  bool get isLoading => throw _privateConstructorUsedError;
+  Option<Either<AuthFailure, Unit>> get signOutFailureOrSuccessOption =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SignOutStateCopyWith<SignOutState> get copyWith;
+  $SignOutStateCopyWith<SignOutState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -194,14 +194,18 @@ class _$SignOutStateCopyWithImpl<$Res> implements $SignOutStateCopyWith<$Res> {
 
   @override
   $Res call({
-    Object isLoading = freezed,
-    Object signOutFailureOrSuccessOption = freezed,
+    Object? isLoading = freezed,
+    Object? signOutFailureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
-      isLoading: isLoading == freezed ? _value.isLoading : isLoading as bool,
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
       signOutFailureOrSuccessOption: signOutFailureOrSuccessOption == freezed
           ? _value.signOutFailureOrSuccessOption
-          : signOutFailureOrSuccessOption as Option<Either<AuthFailure, Unit>>,
+          : signOutFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<AuthFailure, Unit>>,
     ));
   }
 }
@@ -230,14 +234,18 @@ class __$SignOutStateCopyWithImpl<$Res> extends _$SignOutStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object isLoading = freezed,
-    Object signOutFailureOrSuccessOption = freezed,
+    Object? isLoading = freezed,
+    Object? signOutFailureOrSuccessOption = freezed,
   }) {
     return _then(_SignOutState(
-      isLoading: isLoading == freezed ? _value.isLoading : isLoading as bool,
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
       signOutFailureOrSuccessOption: signOutFailureOrSuccessOption == freezed
           ? _value.signOutFailureOrSuccessOption
-          : signOutFailureOrSuccessOption as Option<Either<AuthFailure, Unit>>,
+          : signOutFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<AuthFailure, Unit>>,
     ));
   }
 }
@@ -245,9 +253,7 @@ class __$SignOutStateCopyWithImpl<$Res> extends _$SignOutStateCopyWithImpl<$Res>
 /// @nodoc
 class _$_SignOutState implements _SignOutState {
   const _$_SignOutState(
-      {@required this.isLoading, @required this.signOutFailureOrSuccessOption})
-      : assert(isLoading != null),
-        assert(signOutFailureOrSuccessOption != null);
+      {required this.isLoading, required this.signOutFailureOrSuccessOption});
 
   @override
   final bool isLoading;
@@ -287,17 +293,17 @@ class _$_SignOutState implements _SignOutState {
 
 abstract class _SignOutState implements SignOutState {
   const factory _SignOutState(
-      {@required
-          bool isLoading,
-      @required
-          Option<Either<AuthFailure, Unit>>
-              signOutFailureOrSuccessOption}) = _$_SignOutState;
+      {required bool isLoading,
+      required Option<Either<AuthFailure, Unit>>
+          signOutFailureOrSuccessOption}) = _$_SignOutState;
 
   @override
-  bool get isLoading;
+  bool get isLoading => throw _privateConstructorUsedError;
   @override
-  Option<Either<AuthFailure, Unit>> get signOutFailureOrSuccessOption;
+  Option<Either<AuthFailure, Unit>> get signOutFailureOrSuccessOption =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$SignOutStateCopyWith<_SignOutState> get copyWith;
+  _$SignOutStateCopyWith<_SignOutState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

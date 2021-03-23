@@ -11,7 +11,7 @@ import '../core/widgets/alert_helper.dart';
 import '../core/widgets/loading_overlay.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
                 noConnectionError: (_) => LocaleKeys.noConnectionError.tr(),
               ),
             ),
-            (_) => ExtendedNavigator.of(context).replace(Routes.signInPage),
+            (_) => context.router.replace(const SignInRoute()),
           ),
         ),
         buildWhen: (p, c) => p.isLoading != c.isLoading,

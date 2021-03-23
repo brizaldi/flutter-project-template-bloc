@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'auth_failure.dart';
 
@@ -9,58 +9,61 @@ part of 'auth_failure.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$AuthFailureTearOff {
   const _$AuthFailureTearOff();
 
-// ignore: unused_element
   CacheError cacheError() {
     return const CacheError();
   }
 
-// ignore: unused_element
   ServerError serverError() {
     return const ServerError();
   }
 
-// ignore: unused_element
   NoConnectionError noConnectionError() {
     return const NoConnectionError();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $AuthFailure = _$AuthFailureTearOff();
 
 /// @nodoc
 mixin _$AuthFailure {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult cacheError(),
-    @required TResult serverError(),
-    @required TResult noConnectionError(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() cacheError,
+    required TResult Function() serverError,
+    required TResult Function() noConnectionError,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult cacheError(),
-    TResult serverError(),
-    TResult noConnectionError(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cacheError,
+    TResult Function()? serverError,
+    TResult Function()? noConnectionError,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult cacheError(CacheError value),
-    @required TResult serverError(ServerError value),
-    @required TResult noConnectionError(NoConnectionError value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(CacheError value) cacheError,
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(NoConnectionError value) noConnectionError,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult cacheError(CacheError value),
-    TResult serverError(ServerError value),
-    TResult noConnectionError(NoConnectionError value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CacheError value)? cacheError,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(NoConnectionError value)? noConnectionError,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -115,26 +118,22 @@ class _$CacheError implements CacheError {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult cacheError(),
-    @required TResult serverError(),
-    @required TResult noConnectionError(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() cacheError,
+    required TResult Function() serverError,
+    required TResult Function() noConnectionError,
   }) {
-    assert(cacheError != null);
-    assert(serverError != null);
-    assert(noConnectionError != null);
     return cacheError();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult cacheError(),
-    TResult serverError(),
-    TResult noConnectionError(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cacheError,
+    TResult Function()? serverError,
+    TResult Function()? noConnectionError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (cacheError != null) {
       return cacheError();
     }
@@ -143,26 +142,22 @@ class _$CacheError implements CacheError {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult cacheError(CacheError value),
-    @required TResult serverError(ServerError value),
-    @required TResult noConnectionError(NoConnectionError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(CacheError value) cacheError,
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(NoConnectionError value) noConnectionError,
   }) {
-    assert(cacheError != null);
-    assert(serverError != null);
-    assert(noConnectionError != null);
     return cacheError(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult cacheError(CacheError value),
-    TResult serverError(ServerError value),
-    TResult noConnectionError(NoConnectionError value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CacheError value)? cacheError,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(NoConnectionError value)? noConnectionError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (cacheError != null) {
       return cacheError(this);
     }
@@ -211,26 +206,22 @@ class _$ServerError implements ServerError {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult cacheError(),
-    @required TResult serverError(),
-    @required TResult noConnectionError(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() cacheError,
+    required TResult Function() serverError,
+    required TResult Function() noConnectionError,
   }) {
-    assert(cacheError != null);
-    assert(serverError != null);
-    assert(noConnectionError != null);
     return serverError();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult cacheError(),
-    TResult serverError(),
-    TResult noConnectionError(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cacheError,
+    TResult Function()? serverError,
+    TResult Function()? noConnectionError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (serverError != null) {
       return serverError();
     }
@@ -239,26 +230,22 @@ class _$ServerError implements ServerError {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult cacheError(CacheError value),
-    @required TResult serverError(ServerError value),
-    @required TResult noConnectionError(NoConnectionError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(CacheError value) cacheError,
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(NoConnectionError value) noConnectionError,
   }) {
-    assert(cacheError != null);
-    assert(serverError != null);
-    assert(noConnectionError != null);
     return serverError(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult cacheError(CacheError value),
-    TResult serverError(ServerError value),
-    TResult noConnectionError(NoConnectionError value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CacheError value)? cacheError,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(NoConnectionError value)? noConnectionError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (serverError != null) {
       return serverError(this);
     }
@@ -308,26 +295,22 @@ class _$NoConnectionError implements NoConnectionError {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult cacheError(),
-    @required TResult serverError(),
-    @required TResult noConnectionError(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() cacheError,
+    required TResult Function() serverError,
+    required TResult Function() noConnectionError,
   }) {
-    assert(cacheError != null);
-    assert(serverError != null);
-    assert(noConnectionError != null);
     return noConnectionError();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult cacheError(),
-    TResult serverError(),
-    TResult noConnectionError(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cacheError,
+    TResult Function()? serverError,
+    TResult Function()? noConnectionError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (noConnectionError != null) {
       return noConnectionError();
     }
@@ -336,26 +319,22 @@ class _$NoConnectionError implements NoConnectionError {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult cacheError(CacheError value),
-    @required TResult serverError(ServerError value),
-    @required TResult noConnectionError(NoConnectionError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(CacheError value) cacheError,
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(NoConnectionError value) noConnectionError,
   }) {
-    assert(cacheError != null);
-    assert(serverError != null);
-    assert(noConnectionError != null);
     return noConnectionError(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult cacheError(CacheError value),
-    TResult serverError(ServerError value),
-    TResult noConnectionError(NoConnectionError value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CacheError value)? cacheError,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(NoConnectionError value)? noConnectionError,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (noConnectionError != null) {
       return noConnectionError(this);
     }

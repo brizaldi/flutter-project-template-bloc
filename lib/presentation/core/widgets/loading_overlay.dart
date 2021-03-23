@@ -4,8 +4,8 @@ class LoadingOverlay extends StatelessWidget {
   final bool isLoading;
 
   const LoadingOverlay({
-    Key key,
-    @required this.isLoading,
+    Key? key,
+    required this.isLoading,
   }) : super(key: key);
 
   @override
@@ -29,7 +29,7 @@ class LoadingOverlay extends StatelessWidget {
               const SizedBox(height: 8),
               Text(
                 'Please Wait',
-                style: theme.textTheme.bodyText2.copyWith(
+                style: theme.textTheme.bodyText2!.copyWith(
                   color: Colors.white,
                   fontSize: 16,
                 ),

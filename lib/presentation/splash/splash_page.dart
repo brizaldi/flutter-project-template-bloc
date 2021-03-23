@@ -9,7 +9,7 @@ import '../../extra/routes/router.gr.dart';
 import '../core/widgets/alert_helper.dart';
 
 class SplashPage extends StatelessWidget {
-  const SplashPage({Key key}) : super(key: key);
+  const SplashPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,16 +19,15 @@ class SplashPage extends StatelessWidget {
           listener: (context, state) {
             state.map(
               initial: (_) {},
-              authenticated: (_) =>
-                  ExtendedNavigator.of(context).replace(Routes.homePage),
+              authenticated: (_) => context.router.replace(const HomeRoute()),
               unauthenticated: (_) =>
-                  ExtendedNavigator.of(context).replace(Routes.signInPage),
+                  context.router.replace(const SignInRoute()),
               failed: (failure) {
                 AlertHelper.showSnackBar(
                   context,
                   message: LocaleKeys.signInStatusError.tr(),
                 );
-                ExtendedNavigator.of(context).replace(Routes.signInPage);
+                context.router.replace(const SignInRoute());
               },
             );
           },

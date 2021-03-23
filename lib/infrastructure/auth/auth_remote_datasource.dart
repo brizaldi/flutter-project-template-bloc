@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/auth/user.dart';
@@ -8,8 +7,8 @@ import '../../domain/core/exceptions.dart';
 
 abstract class IAuthRemoteDataSource {
   Future<User> signIn({
-    @required String emailAddress,
-    @required String password,
+    required String emailAddress,
+    required String password,
   });
 
   Future<void> signOut();
@@ -32,7 +31,10 @@ class AuthRemoteDataSource implements IAuthRemoteDataSource {
   }
 
   @override
-  Future<User> signIn({String emailAddress, String password}) {
+  Future<User> signIn({
+    required String emailAddress,
+    required String password,
+  }) {
     try {
       return Future.delayed(const Duration(seconds: 2), () {
         const userJson =

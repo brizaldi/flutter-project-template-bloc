@@ -8,7 +8,7 @@ import '../../../extra/langs/locale_keys.g.dart';
 import 'sign_in_form.dart';
 
 class SignInScaffold extends StatelessWidget {
-  const SignInScaffold({Key key}) : super(key: key);
+  const SignInScaffold({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

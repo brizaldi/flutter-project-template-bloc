@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'user.dart';
 
@@ -8,6 +8,10 @@ part of 'user.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 User _$UserFromJson(Map<String, dynamic> json) {
   return _User.fromJson(json);
 }
@@ -16,11 +20,10 @@ User _$UserFromJson(Map<String, dynamic> json) {
 class _$UserTearOff {
   const _$UserTearOff();
 
-// ignore: unused_element
   _User call(
-      {@required int id,
-      @required @JsonKey(name: 'email_address') String email,
-      @required @JsonKey(name: 'token') String accessToken}) {
+      {required int id,
+      @JsonKey(name: 'email_address') required String email,
+      @JsonKey(name: 'token') required String accessToken}) {
     return _User(
       id: id,
       email: email,
@@ -28,27 +31,25 @@ class _$UserTearOff {
     );
   }
 
-// ignore: unused_element
   User fromJson(Map<String, Object> json) {
     return User.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $User = _$UserTearOff();
 
 /// @nodoc
 mixin _$User {
-  int get id;
+  int get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'email_address')
-  String get email;
+  String get email => throw _privateConstructorUsedError;
   @JsonKey(name: 'token')
-  String get accessToken;
+  String get accessToken => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $UserCopyWith<User> get copyWith;
+  $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -71,15 +72,23 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
 
   @override
   $Res call({
-    Object id = freezed,
-    Object email = freezed,
-    Object accessToken = freezed,
+    Object? id = freezed,
+    Object? email = freezed,
+    Object? accessToken = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as int,
-      email: email == freezed ? _value.email : email as String,
-      accessToken:
-          accessToken == freezed ? _value.accessToken : accessToken as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      accessToken: accessToken == freezed
+          ? _value.accessToken
+          : accessToken // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -106,15 +115,23 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object email = freezed,
-    Object accessToken = freezed,
+    Object? id = freezed,
+    Object? email = freezed,
+    Object? accessToken = freezed,
   }) {
     return _then(_User(
-      id: id == freezed ? _value.id : id as int,
-      email: email == freezed ? _value.email : email as String,
-      accessToken:
-          accessToken == freezed ? _value.accessToken : accessToken as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      accessToken: accessToken == freezed
+          ? _value.accessToken
+          : accessToken // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -124,12 +141,9 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
 /// @nodoc
 class _$_User implements _User {
   const _$_User(
-      {@required this.id,
-      @required @JsonKey(name: 'email_address') this.email,
-      @required @JsonKey(name: 'token') this.accessToken})
-      : assert(id != null),
-        assert(email != null),
-        assert(accessToken != null);
+      {required this.id,
+      @JsonKey(name: 'email_address') required this.email,
+      @JsonKey(name: 'token') required this.accessToken});
 
   factory _$_User.fromJson(Map<String, dynamic> json) =>
       _$_$_UserFromJson(json);
@@ -181,21 +195,21 @@ class _$_User implements _User {
 
 abstract class _User implements User {
   const factory _User(
-      {@required int id,
-      @required @JsonKey(name: 'email_address') String email,
-      @required @JsonKey(name: 'token') String accessToken}) = _$_User;
+      {required int id,
+      @JsonKey(name: 'email_address') required String email,
+      @JsonKey(name: 'token') required String accessToken}) = _$_User;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
   @override
-  int get id;
+  int get id => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'email_address')
-  String get email;
+  String get email => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'token')
-  String get accessToken;
+  String get accessToken => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$UserCopyWith<_User> get copyWith;
+  _$UserCopyWith<_User> get copyWith => throw _privateConstructorUsedError;
 }

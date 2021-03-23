@@ -12,7 +12,7 @@ import '../core/widgets/loading_overlay.dart';
 import 'widgets/sign_in_scaffold.dart';
 
 class SignInPage extends StatelessWidget {
-  const SignInPage({Key key}) : super(key: key);
+  const SignInPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class SignInPage extends StatelessWidget {
                     namedArgs: {'userName': user.email},
                   ),
                 );
-                ExtendedNavigator.of(context).replace(Routes.homePage);
+                context.router.replace(const HomeRoute());
               },
             ),
           );

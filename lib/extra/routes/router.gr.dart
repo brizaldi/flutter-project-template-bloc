@@ -4,66 +4,49 @@
 // AutoRouteGenerator
 // **************************************************************************
 
-// ignore_for_file: public_member_api_docs
+import 'package:auto_route/auto_route.dart' as _i1;
+import 'package:project_template/presentation/home/home_page.dart' as _i3;
+import 'package:project_template/presentation/sign_in/sign_in_page.dart' as _i4;
+import 'package:project_template/presentation/splash/splash_page.dart' as _i2;
 
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
+class AppRouter extends _i1.RootStackRouter {
+  AppRouter();
 
-import '../../presentation/home/home_page.dart';
-import '../../presentation/sign_in/sign_in_page.dart';
-import '../../presentation/splash/splash_page.dart';
-
-class Routes {
-  static const String splashPage = '/';
-  static const String homePage = '/home-page';
-  static const String signInPage = '/sign-in-page';
-  static const all = <String>{
-    splashPage,
-    homePage,
-    signInPage,
+  @override
+  final Map<String, _i1.PageFactory> pagesMap = {
+    SplashRoute.name: (entry) {
+      return _i1.AdaptivePage(entry: entry, child: const _i2.SplashPage());
+    },
+    HomeRoute.name: (entry) {
+      return _i1.AdaptivePage(entry: entry, child: const _i3.HomePage());
+    },
+    SignInRoute.name: (entry) {
+      return _i1.AdaptivePage(entry: entry, child: const _i4.SignInPage());
+    }
   };
+
+  @override
+  List<_i1.RouteConfig> get routes => [
+        _i1.RouteConfig(SplashRoute.name, path: '/'),
+        _i1.RouteConfig(HomeRoute.name, path: '/home-page'),
+        _i1.RouteConfig(SignInRoute.name, path: '/sign-in-page')
+      ];
 }
 
-class Router extends RouterBase {
-  @override
-  List<RouteDef> get routes => _routes;
-  final _routes = <RouteDef>[
-    RouteDef(Routes.splashPage, page: SplashPage),
-    RouteDef(Routes.homePage, page: HomePage),
-    RouteDef(Routes.signInPage, page: SignInPage),
-  ];
-  @override
-  Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
-  final _pagesMap = <Type, AutoRouteFactory>{
-    SplashPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => const SplashPage(),
-        settings: data,
-      );
-    },
-    HomePage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => const HomePage(),
-        settings: data,
-      );
-    },
-    SignInPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => const SignInPage(),
-        settings: data,
-      );
-    },
-  };
+class SplashRoute extends _i1.PageRouteInfo {
+  const SplashRoute() : super(name, path: '/');
+
+  static const String name = 'SplashRoute';
 }
 
-/// ************************************************************************
-/// Navigation helper methods extension
-/// *************************************************************************
+class HomeRoute extends _i1.PageRouteInfo {
+  const HomeRoute() : super(name, path: '/home-page');
 
-extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
-  Future<dynamic> pushSplashPage() => push<dynamic>(Routes.splashPage);
+  static const String name = 'HomeRoute';
+}
 
-  Future<dynamic> pushHomePage() => push<dynamic>(Routes.homePage);
+class SignInRoute extends _i1.PageRouteInfo {
+  const SignInRoute() : super(name, path: '/sign-in-page');
 
-  Future<dynamic> pushSignInPage() => push<dynamic>(Routes.signInPage);
+  static const String name = 'SignInRoute';
 }
