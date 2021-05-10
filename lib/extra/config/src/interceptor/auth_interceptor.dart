@@ -11,7 +11,7 @@ class AuthInterceptor extends Interceptor {
     final user = await getIt.get<IAuthLocalDataSource>().getSignedInUser();
 
     if (user != null) {
-      options.headers['Authorization'] = 'Bearer ${user.accessToken}';
+      options.headers['Authorization'] = 'Bearer ${user.userToken}';
     }
     return super.onRequest(options, handler);
   }

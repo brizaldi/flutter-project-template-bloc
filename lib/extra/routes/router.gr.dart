@@ -5,24 +5,32 @@
 // **************************************************************************
 
 import 'package:auto_route/auto_route.dart' as _i1;
-import 'package:project_template/presentation/home/home_page.dart' as _i3;
-import 'package:project_template/presentation/sign_in/sign_in_page.dart' as _i4;
-import 'package:project_template/presentation/splash/splash_page.dart' as _i2;
+import 'package:flutter/material.dart' as _i2;
+import 'package:project_template/presentation/home/home_page.dart' as _i4;
+import 'package:project_template/presentation/sign_in/sign_in_page.dart' as _i5;
+import 'package:project_template/presentation/splash/splash_page.dart' as _i3;
 
 class AppRouter extends _i1.RootStackRouter {
-  AppRouter();
+  AppRouter([_i2.GlobalKey<_i2.NavigatorState>? navigatorKey])
+      : super(navigatorKey);
 
   @override
   final Map<String, _i1.PageFactory> pagesMap = {
-    SplashRoute.name: (entry) {
-      return _i1.AdaptivePage(entry: entry, child: const _i2.SplashPage());
-    },
-    HomeRoute.name: (entry) {
-      return _i1.AdaptivePage(entry: entry, child: const _i3.HomePage());
-    },
-    SignInRoute.name: (entry) {
-      return _i1.AdaptivePage(entry: entry, child: const _i4.SignInPage());
-    }
+    SplashRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i3.SplashPage();
+        }),
+    HomeRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i4.HomePage();
+        }),
+    SignInRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i5.SignInPage();
+        })
   };
 
   @override

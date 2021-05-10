@@ -1,6 +1,6 @@
 part of configuration;
 
-enum Flavor { development, staging, preprod, release }
+enum Flavor { development, staging, release }
 
 class BuildConfig {
   const BuildConfig._({
@@ -13,28 +13,28 @@ class BuildConfig {
 
   const BuildConfig._development()
       : this._(
-          baseUrl: 'http://...',
+          baseUrl: 'https://ecommerce.vasdev.co.id/api/v1/',
           socketUrl: '',
-          connectTimeout: 5000,
-          receiveTimeout: 5000,
+          connectTimeout: 20000,
+          receiveTimeout: 20000,
           flavor: Flavor.development,
         );
 
   const BuildConfig._staging()
       : this._(
-          baseUrl: 'http://...',
+          baseUrl: 'https://ecommerce.vasdev.co.id/api/v1/',
           socketUrl: '',
-          connectTimeout: 5000,
-          receiveTimeout: 5000,
+          connectTimeout: 20000,
+          receiveTimeout: 20000,
           flavor: Flavor.staging,
         );
 
   const BuildConfig._release()
       : this._(
-          baseUrl: 'http://.../',
+          baseUrl: 'https://ecommerce.vasdev.co.id/api/v1/',
           socketUrl: '',
-          connectTimeout: 5000,
-          receiveTimeout: 5000,
+          connectTimeout: 20000,
+          receiveTimeout: 20000,
           flavor: Flavor.release,
         );
 
@@ -55,19 +55,18 @@ class BuildConfig {
         _instance = const BuildConfig._release();
         break;
     }
-    _initLog(flavor);
+    _initLog();
   }
 
   static BuildConfig get() {
     return _instance;
   }
 
-  static Future<void> _initLog(String? flavor) async {
+  static Future<void> _initLog() async {
     await Log.init();
     switch (_instance.flavor) {
       case Flavor.development:
       case Flavor.staging:
-      case Flavor.preprod:
         Log.setLevel(Level.ALL);
         break;
       case Flavor.release:

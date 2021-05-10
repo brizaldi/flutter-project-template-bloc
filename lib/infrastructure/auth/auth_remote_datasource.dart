@@ -4,6 +4,8 @@ import 'package:injectable/injectable.dart';
 
 import '../../domain/auth/user.dart';
 import '../../domain/core/exceptions.dart';
+import '../../extra/utils/logging.dart';
+import 'dto/user_dtos.dart';
 
 abstract class IAuthRemoteDataSource {
   Future<User> signIn({
@@ -24,8 +26,9 @@ class AuthRemoteDataSource implements IAuthRemoteDataSource {
       return Future.delayed(const Duration(seconds: 1), () {
         return;
       });
-    } on Exception catch (e) {
-      print(e);
+    } catch (e, s) {
+      Log.severe(e.toString());
+      Log.severe(s.toString());
       throw ServerException();
     }
   }
@@ -37,12 +40,14 @@ class AuthRemoteDataSource implements IAuthRemoteDataSource {
   }) {
     try {
       return Future.delayed(const Duration(seconds: 2), () {
-        const userJson =
-            '{"id":2,"email_address":"a@gmail.com","token":"qwerty"}';
-        return User.fromJson(json.decode(userJson));
+        const jsonStr = '{"id":"2","email":"a@gmail.com","token":"qwerty"}';
+
+        final dto = UserDto.fromJson(json.decode(jsonStr));
+        return dto.toDomain();
       });
-    } on Exception catch (e) {
-      print(e);
+    } catch (e, s) {
+      Log.severe(e.toString());
+      Log.severe(s.toString());
       throw ServerException();
     }
   }

@@ -12,27 +12,19 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-User _$UserFromJson(Map<String, dynamic> json) {
-  return _User.fromJson(json);
-}
-
 /// @nodoc
 class _$UserTearOff {
   const _$UserTearOff();
 
   _User call(
-      {required int id,
-      @JsonKey(name: 'email_address') required String email,
-      @JsonKey(name: 'token') required String accessToken}) {
+      {required UniqueId id,
+      required EmailAddress email,
+      required UserToken userToken}) {
     return _User(
       id: id,
       email: email,
-      accessToken: accessToken,
+      userToken: userToken,
     );
-  }
-
-  User fromJson(Map<String, Object> json) {
-    return User.fromJson(json);
   }
 }
 
@@ -41,13 +33,10 @@ const $User = _$UserTearOff();
 
 /// @nodoc
 mixin _$User {
-  int get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'email_address')
-  String get email => throw _privateConstructorUsedError;
-  @JsonKey(name: 'token')
-  String get accessToken => throw _privateConstructorUsedError;
+  UniqueId get id => throw _privateConstructorUsedError;
+  EmailAddress get email => throw _privateConstructorUsedError;
+  UserToken get userToken => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
 }
@@ -56,10 +45,7 @@ mixin _$User {
 abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res>;
-  $Res call(
-      {int id,
-      @JsonKey(name: 'email_address') String email,
-      @JsonKey(name: 'token') String accessToken});
+  $Res call({UniqueId id, EmailAddress email, UserToken userToken});
 }
 
 /// @nodoc
@@ -74,21 +60,21 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
   $Res call({
     Object? id = freezed,
     Object? email = freezed,
-    Object? accessToken = freezed,
+    Object? userToken = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as UniqueId,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      accessToken: accessToken == freezed
-          ? _value.accessToken
-          : accessToken // ignore: cast_nullable_to_non_nullable
-              as String,
+              as EmailAddress,
+      userToken: userToken == freezed
+          ? _value.userToken
+          : userToken // ignore: cast_nullable_to_non_nullable
+              as UserToken,
     ));
   }
 }
@@ -98,10 +84,7 @@ abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   factory _$UserCopyWith(_User value, $Res Function(_User) then) =
       __$UserCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {int id,
-      @JsonKey(name: 'email_address') String email,
-      @JsonKey(name: 'token') String accessToken});
+  $Res call({UniqueId id, EmailAddress email, UserToken userToken});
 }
 
 /// @nodoc
@@ -117,49 +100,41 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? email = freezed,
-    Object? accessToken = freezed,
+    Object? userToken = freezed,
   }) {
     return _then(_User(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as UniqueId,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      accessToken: accessToken == freezed
-          ? _value.accessToken
-          : accessToken // ignore: cast_nullable_to_non_nullable
-              as String,
+              as EmailAddress,
+      userToken: userToken == freezed
+          ? _value.userToken
+          : userToken // ignore: cast_nullable_to_non_nullable
+              as UserToken,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+
 class _$_User implements _User {
   const _$_User(
-      {required this.id,
-      @JsonKey(name: 'email_address') required this.email,
-      @JsonKey(name: 'token') required this.accessToken});
-
-  factory _$_User.fromJson(Map<String, dynamic> json) =>
-      _$_$_UserFromJson(json);
+      {required this.id, required this.email, required this.userToken});
 
   @override
-  final int id;
+  final UniqueId id;
   @override
-  @JsonKey(name: 'email_address')
-  final String email;
+  final EmailAddress email;
   @override
-  @JsonKey(name: 'token')
-  final String accessToken;
+  final UserToken userToken;
 
   @override
   String toString() {
-    return 'User(id: $id, email: $email, accessToken: $accessToken)';
+    return 'User(id: $id, email: $email, userToken: $userToken)';
   }
 
   @override
@@ -170,9 +145,9 @@ class _$_User implements _User {
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.email, email) ||
                 const DeepCollectionEquality().equals(other.email, email)) &&
-            (identical(other.accessToken, accessToken) ||
+            (identical(other.userToken, userToken) ||
                 const DeepCollectionEquality()
-                    .equals(other.accessToken, accessToken)));
+                    .equals(other.userToken, userToken)));
   }
 
   @override
@@ -180,35 +155,26 @@ class _$_User implements _User {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(email) ^
-      const DeepCollectionEquality().hash(accessToken);
+      const DeepCollectionEquality().hash(userToken);
 
   @JsonKey(ignore: true)
   @override
   _$UserCopyWith<_User> get copyWith =>
       __$UserCopyWithImpl<_User>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$_$_UserToJson(this);
-  }
 }
 
 abstract class _User implements User {
   const factory _User(
-      {required int id,
-      @JsonKey(name: 'email_address') required String email,
-      @JsonKey(name: 'token') required String accessToken}) = _$_User;
-
-  factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
+      {required UniqueId id,
+      required EmailAddress email,
+      required UserToken userToken}) = _$_User;
 
   @override
-  int get id => throw _privateConstructorUsedError;
+  UniqueId get id => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'email_address')
-  String get email => throw _privateConstructorUsedError;
+  EmailAddress get email => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'token')
-  String get accessToken => throw _privateConstructorUsedError;
+  UserToken get userToken => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$UserCopyWith<_User> get copyWith => throw _privateConstructorUsedError;

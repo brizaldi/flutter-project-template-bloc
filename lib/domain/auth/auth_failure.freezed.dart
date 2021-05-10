@@ -100,6 +100,7 @@ class _$CacheErrorCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$CacheError implements CacheError {
   const _$CacheError();
 
@@ -188,6 +189,7 @@ class _$ServerErrorCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$ServerError implements ServerError {
   const _$ServerError();
 
@@ -277,6 +279,7 @@ class _$NoConnectionErrorCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$NoConnectionError implements NoConnectionError {
   const _$NoConnectionError();
 

@@ -170,6 +170,7 @@ class _$ExceedingLengthCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
+
 class _$ExceedingLength<T> implements ExceedingLength<T> {
   const _$ExceedingLength({required this.failedValue, required this.max});
 
@@ -307,6 +308,7 @@ class _$EmptyCopyWithImpl<T, $Res> extends _$ValueFailureCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
+
 class _$Empty<T> implements Empty<T> {
   const _$Empty({required this.failedValue});
 
@@ -439,6 +441,7 @@ class _$MultilineCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
+
 class _$Multiline<T> implements Multiline<T> {
   const _$Multiline({required this.failedValue});
 
@@ -571,6 +574,7 @@ class _$InvalidEmailCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
+
 class _$InvalidEmail<T> implements InvalidEmail<T> {
   const _$InvalidEmail({required this.failedValue});
 
@@ -703,6 +707,7 @@ class _$ShortPasswordCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
+
 class _$ShortPassword<T> implements ShortPassword<T> {
   const _$ShortPassword({required this.failedValue});
 

@@ -26,9 +26,9 @@ class AuthRepository implements IAuthRepository {
   Future<Either<AuthFailure, Option<User>>> getSignedInUser() async {
     try {
       final _user = await _localDataSource.getSignedInUser();
-      return Right(optionOf(_user));
+      return right(optionOf(_user));
     } on CacheException {
-      return const Left(AuthFailure.cacheError());
+      return left(const AuthFailure.cacheError());
     }
   }
 
@@ -39,7 +39,7 @@ class AuthRepository implements IAuthRepository {
         await _remoteDataSource.signOut();
         await _localDataSource.clearUserData();
 
-        return const Right(unit);
+        return right(unit);
       } on ServerException {
         return left(const AuthFailure.serverError());
       } on CacheException {
@@ -76,7 +76,7 @@ class AuthRepository implements IAuthRepository {
 
         await _localDataSource.cacheUser(user);
 
-        return Right(user);
+        return right(user);
       } on ServerException {
         return left(const AuthFailure.serverError());
       } on CacheException {

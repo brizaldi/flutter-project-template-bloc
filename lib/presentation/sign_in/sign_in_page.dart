@@ -37,7 +37,7 @@ class SignInPage extends StatelessWidget {
                 AlertHelper.showSnackBar(
                   context,
                   message: LocaleKeys.welcomeUser.tr(
-                    namedArgs: {'userName': user.email},
+                    namedArgs: {'userName': user.email.getOrCrash()},
                   ),
                 );
                 context.router.replace(const HomeRoute());

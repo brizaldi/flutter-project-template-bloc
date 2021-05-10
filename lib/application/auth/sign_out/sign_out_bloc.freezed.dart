@@ -84,6 +84,7 @@ class __$SignedOutCopyWithImpl<$Res> extends _$SignOutEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_SignedOut implements _SignedOut {
   const _$_SignedOut();
 
@@ -251,6 +252,7 @@ class __$SignOutStateCopyWithImpl<$Res> extends _$SignOutStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_SignOutState implements _SignOutState {
   const _$_SignOutState(
       {required this.isLoading, required this.signOutFailureOrSuccessOption});

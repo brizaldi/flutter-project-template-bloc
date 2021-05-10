@@ -1,6 +1,6 @@
 import 'package:logging/logging.dart';
 
-mixin Log {
+class Log {
   static const String _name = 'Logger';
   static late Logger _instance;
 
@@ -16,43 +16,67 @@ mixin Log {
     Logger.root.level = level;
   }
 
-  static void info(String tag, String message,
-      [Object? error, StackTrace? stackTrace]) {
-    _instance.info('$tag: $message', error, stackTrace);
+  static void info(
+    String message, [
+    Object? error,
+    StackTrace? stackTrace,
+  ]) {
+    _instance.info(message, error, stackTrace);
   }
 
-  static void warning(String tag, String message,
-      [Object? error, StackTrace? stackTrace]) {
-    _instance.warning('$tag: $message', error, stackTrace);
+  static void warning(
+    String message, [
+    Object? error,
+    StackTrace? stackTrace,
+  ]) {
+    _instance.warning(message, error, stackTrace);
   }
 
-  static void config(String tag, String message,
-      [Object? error, StackTrace? stackTrace]) {
-    _instance.config('$tag: $message', error, stackTrace);
+  static void config(
+    String message, [
+    Object? error,
+    StackTrace? stackTrace,
+  ]) {
+    _instance.config(message, error, stackTrace);
   }
 
-  static void fine(String tag, String message,
-      [Object? error, StackTrace? stackTrace]) {
+  static void fine(
+    String message, [
+    Object? error,
+    StackTrace? stackTrace,
+  ]) {
     _instance.fine(message, error, stackTrace);
   }
 
-  static void finer(String tag, String message,
-      [Object? error, StackTrace? stackTrace]) {
-    _instance.finer('$tag: $message', error, stackTrace);
+  static void finer(
+    String message, [
+    Object? error,
+    StackTrace? stackTrace,
+  ]) {
+    _instance.finer(message, error, stackTrace);
   }
 
-  static void finest(String tag, String message,
-      [Object? error, StackTrace? stackTrace]) {
-    _instance.finest('$tag: $message', error, stackTrace);
+  static void finest(
+    String message, [
+    Object? error,
+    StackTrace? stackTrace,
+  ]) {
+    _instance.finest(message, error, stackTrace);
   }
 
-  static void severe(String tag, String message,
-      [Object? error, StackTrace? stackTrace]) {
-    _instance.severe('$tag: $message', error, stackTrace);
+  static void severe(
+    String message, [
+    Object? error,
+    StackTrace? stackTrace,
+  ]) {
+    _instance.severe(message, error, stackTrace);
   }
 
-  static void shout(String tag, String message,
-      [Object? error, StackTrace? stackTrace]) {
-    _instance.shout('$tag: $message', error, stackTrace);
+  static void shout(
+    String message, [
+    Object? error,
+    StackTrace? stackTrace,
+  ]) {
+    _instance.shout(message, error, stackTrace);
   }
 }

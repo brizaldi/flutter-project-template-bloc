@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'errors.dart';
 import 'failures.dart';
+import 'value_validators.dart';
 
 @immutable
 abstract class ValueObject<T> {
@@ -36,4 +37,25 @@ abstract class ValueObject<T> {
 
   @override
   String toString() => 'Value($value)';
+}
+
+class UniqueId extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory UniqueId(String uniqueId) {
+    return UniqueId._(
+      validateStringNotEmpty(uniqueId),
+    );
+  }
+
+  factory UniqueId.fromInteger(int uniqueId) {
+    return UniqueId._(
+      right(uniqueId.toString()),
+    );
+  }
+
+  factory UniqueId.empty() => UniqueId('-');
+
+  const UniqueId._(this.value);
 }

@@ -29,3 +29,16 @@ class Password extends ValueObject<String> {
 
   const Password._(this.value);
 }
+
+class UserToken extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory UserToken(String input) {
+    return UserToken._(
+      validateStringNotEmpty(input),
+    );
+  }
+
+  const UserToken._(this.value);
+}
