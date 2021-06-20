@@ -13,7 +13,7 @@ class BuildConfig {
 
   const BuildConfig._development()
       : this._(
-          baseUrl: 'https://ecommerce.vasdev.co.id/api/v1/',
+          baseUrl: 'https://...',
           socketUrl: '',
           connectTimeout: 20000,
           receiveTimeout: 20000,
@@ -22,7 +22,7 @@ class BuildConfig {
 
   const BuildConfig._staging()
       : this._(
-          baseUrl: 'https://ecommerce.vasdev.co.id/api/v1/',
+          baseUrl: 'https://...',
           socketUrl: '',
           connectTimeout: 20000,
           receiveTimeout: 20000,
@@ -31,7 +31,7 @@ class BuildConfig {
 
   const BuildConfig._release()
       : this._(
-          baseUrl: 'https://ecommerce.vasdev.co.id/api/v1/',
+          baseUrl: 'https://...',
           socketUrl: '',
           connectTimeout: 20000,
           receiveTimeout: 20000,
