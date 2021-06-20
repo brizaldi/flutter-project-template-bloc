@@ -10,7 +10,7 @@ class AlertHelper {
         return Flash(
           controller: controller,
           child: FlashBar(
-            message: Text(message),
+            content: Text(message),
           ),
         );
       },
