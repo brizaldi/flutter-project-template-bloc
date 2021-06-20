@@ -217,6 +217,16 @@ linter:
     # Flutter repo   enabled  : https://github.com/flutter/flutter/blob/master/analysis_options.yaml
     avoid_classes_with_only_static_members: false
 
+    # DO avoid method calls or accessing properties on an object that is either explicitly 
+    # or implicitly statically typed "dynamic". Dynamic calls are treated slightly different 
+    # in every runtime environment and compiler, but most production modes (and even some development modes) 
+    # have both compile size and runtime performance penalties associated with dynamic calls.
+    #
+    # https://dart-lang.github.io/linter/lints/avoid_dynamic_calls.html
+    #
+    # It's still experimental.
+    avoid_dynamic_calls: false
+
     # AVOID positional boolean parameters.
     #
     # https://dart-lang.github.io/linter/lints/avoid_positional_boolean_parameters.html
@@ -369,6 +379,13 @@ linter:
     # Flutter repo   disabled : https://github.com/flutter/flutter/blob/master/analysis_options.yaml
     no_default_cases: false
 
+    # AVOID defining a one-member abstract class when a simple function will do.
+    #
+    # https://dart-lang.github.io/linter/lints/one_member_abstracts.html
+    #
+    # Personal preference.
+    one_member_abstracts: false
+
     # PREFER defining constructors instead of static methods to create instances.
     #
     # https://dart-lang.github.io/linter/lints/prefer_constructors_over_static_methods.html
@@ -426,6 +443,13 @@ linter:
     # Flutter repo   disabled : https://github.com/flutter/flutter/blob/master/analysis_options.yaml
     prefer_expression_function_bodies: false
 
+    # DO prefer declaring parameters as final if they are not reassigned in the function body.
+    #
+    # https://dart-lang.github.io/linter/lints/prefer_final_parameters.html
+    #
+    # Unnecessary, already using https://dart-lang.github.io/linter/lints/parameter_assignments.html.
+    prefer_final_parameters: false
+
     # DO document all public members.
     #
     # https://dart-lang.github.io/linter/lints/public_member_api_docs.html
@@ -451,6 +475,14 @@ linter:
     # APPLICATION:   DISABLE  : With false value. (My default, assume we are making an app most of the time.)
     public_member_api_docs: false
 
+    # DO use trailing commas for all function calls and declarations unless the function call or definition, 
+    # from the start of the function name up to the closing parenthesis, fits in a single line.
+    #
+    # https://dart-lang.github.io/linter/lints/require_trailing_commas.html
+    #
+    # It's still experimental.
+    require_trailing_commas: false
+
     # DO sort constructor declarations before other members.
     #
     # I do like this lint rule, but I want to have the default constructor first, followed
@@ -470,6 +502,13 @@ linter:
     #                           Discussion https://github.com/passsy/dart-lint/issues/1
     # Flutter repo   enabled  : https://github.com/flutter/flutter/blob/master/analysis_options.yaml
     sort_constructors_first: false
+    
+    # DO sort pub dependencies in pubspec.yaml.
+    #
+    # https://dart-lang.github.io/linter/lints/sort_pub_dependencies.html
+    #
+    # Personal preference, I prefer sorting it manually based on package functionality.
+    sort_pub_dependencies: false
 
     # DON'T use final for local variables.
     #
@@ -485,9 +524,10 @@ linter:
     # Lint           disabled : https://pub.dev/packages/lint
     # Flutter repo   disabled : https://github.com/flutter/flutter/blob/master/analysis_options.yaml
     unnecessary_final: false
-
-    one_member_abstracts: false
-
-    sort_pub_dependencies: false
-
-    unnecessary_raw_strings: false
+    
+    # DO NOT use BuildContext across asynchronous gaps.
+    #
+    # https://dart-lang.github.io/linter/lints/use_build_context_synchronously.html
+    #
+    # It's still experimental.
+    use_build_context_synchronously: false

@@ -12,7 +12,7 @@ class StringUtils {
 
   static String removeAllHtmlTags(String htmlText) {
     final pattern = RegExp(
-      r'<.*?>|&.*?;',
+      '<.*?>|&.*?;',
       multiLine: true,
       caseSensitive: false,
     );
