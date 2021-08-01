@@ -9,6 +9,8 @@ class AlertHelper {
       builder: (context, controller) {
         return Flash(
           controller: controller,
+          position: FlashPosition.bottom,
+          behavior: FlashBehavior.floating,
           child: FlashBar(
             content: Text(message),
           ),

@@ -9,7 +9,7 @@ import 'package:firebase_analytics/firebase_analytics.dart' as _i5;
 import 'package:flutter_local_notifications/flutter_local_notifications.dart'
     as _i6;
 import 'package:get_it/get_it.dart' as _i1;
-import 'package:hive/hive.dart' as _i3;
+import 'package:hive_flutter/hive_flutter.dart' as _i3;
 import 'package:injectable/injectable.dart' as _i2;
 
 import '../../application/auth/auth_bloc.dart' as _i14;
