@@ -7,7 +7,7 @@ class AlertHelper {
       context: context,
       duration: const Duration(seconds: 2),
       builder: (context, controller) {
-        return Flash(
+        return Flash<FlashBar>(
           controller: controller,
           position: FlashPosition.bottom,
           behavior: FlashBehavior.floating,

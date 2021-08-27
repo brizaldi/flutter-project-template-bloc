@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class LoadingOverlay extends StatelessWidget {
-  final bool isLoading;
-
   const LoadingOverlay({
     Key? key,
     required this.isLoading,
   }) : super(key: key);
+
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {

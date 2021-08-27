@@ -7,12 +7,12 @@ import '../../domain/auth/user.dart';
 import '../../domain/core/exceptions.dart';
 import '../../extra/constants/strings.dart';
 import '../../extra/utils/logging.dart';
-import 'dto/user_dtos.dart';
+import 'dto/user_dto.dart';
 
 abstract class IAuthLocalDataSource {
   Future<User?> getSignedInUser();
 
-  Future<void> cacheUser(User user);
+  Future<void> cacheUser(UserDTO user);
 
   Future<void> clearUserData();
 }
@@ -26,10 +26,11 @@ class AuthLocalDataSource implements IAuthLocalDataSource {
   @override
   Future<User?> getSignedInUser() async {
     try {
-      final jsonStr = _box.get(Strings.user);
+      final jsonStr = _box.get(Strings.user) as String?;
       if (jsonStr == null) return null;
 
-      final dto = UserDto.fromJson(json.decode(jsonStr));
+      final dto =
+          UserDTO.fromJson(json.decode(jsonStr) as Map<String, dynamic>);
       return dto.toDomain();
     } on Exception catch (e, s) {
       Log.severe(e.toString());
@@ -50,12 +51,11 @@ class AuthLocalDataSource implements IAuthLocalDataSource {
   }
 
   @override
-  Future<void> cacheUser(User user) {
+  Future<void> cacheUser(UserDTO user) {
     try {
-      final dto = UserDto.fromDomain(user);
       return _box.put(
         Strings.user,
-        json.encode(dto.toJson()),
+        jsonEncode(user.toJson()),
       );
     } on Exception catch (e, s) {
       Log.severe(e.toString());

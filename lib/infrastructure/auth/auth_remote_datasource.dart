@@ -2,13 +2,12 @@ import 'dart:convert';
 
 import 'package:injectable/injectable.dart';
 
-import '../../domain/auth/user.dart';
 import '../../domain/core/exceptions.dart';
 import '../../extra/utils/logging.dart';
-import 'dto/user_dtos.dart';
+import 'dto/user_dto.dart';
 
 abstract class IAuthRemoteDataSource {
-  Future<User> signIn({
+  Future<UserDTO> signIn({
     required String emailAddress,
     required String password,
   });
@@ -34,16 +33,17 @@ class AuthRemoteDataSource implements IAuthRemoteDataSource {
   }
 
   @override
-  Future<User> signIn({
+  Future<UserDTO> signIn({
     required String emailAddress,
     required String password,
   }) {
     try {
       return Future.delayed(const Duration(seconds: 2), () {
         const jsonStr = '{"id":"2","email":"a@gmail.com","token":"qwerty"}';
+        final decodedJson = jsonDecode(jsonStr) as Map<String, dynamic>;
+        final convertedData = UserDTO.fromJson(decodedJson);
 
-        final dto = UserDto.fromJson(json.decode(jsonStr));
-        return dto.toDomain();
+        return convertedData;
       });
     } catch (e, s) {
       Log.severe(e.toString());

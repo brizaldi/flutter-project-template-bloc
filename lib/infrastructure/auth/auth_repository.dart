@@ -69,14 +69,14 @@ class AuthRepository implements IAuthRepository {
         final emailAddressStr = emailAddress.getOrCrash();
         final passwordStr = password.getOrCrash();
 
-        final user = await _remoteDataSource.signIn(
+        final userDto = await _remoteDataSource.signIn(
           emailAddress: emailAddressStr,
           password: passwordStr,
         );
 
-        await _localDataSource.cacheUser(user);
+        await _localDataSource.cacheUser(userDto);
 
-        return right(user);
+        return right(userDto.toDomain());
       } on ServerException {
         return left(const AuthFailure.serverError());
       } on CacheException {

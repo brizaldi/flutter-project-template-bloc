@@ -4,26 +4,29 @@ import '../../../domain/auth/user.dart';
 import '../../../domain/auth/value_objects.dart';
 import '../../../domain/core/value_objects.dart';
 
-part 'user_dtos.freezed.dart';
-part 'user_dtos.g.dart';
+part 'user_dto.freezed.dart';
+part 'user_dto.g.dart';
 
 @freezed
-class UserDto with _$UserDto {
-  const factory UserDto({
+class UserDTO with _$UserDTO {
+  const factory UserDTO({
     required String id,
     required String email,
     @JsonKey(name: 'token') required String userToken,
-  }) = _UserDto;
+  }) = _UserDTO;
 
-  const UserDto._();
+  const UserDTO._();
 
-  factory UserDto.fromDomain(User user) {
-    return UserDto(
-      id: user.id.getOrCrash(),
-      email: user.email.getOrCrash(),
-      userToken: user.userToken.getOrCrash(),
+  factory UserDTO.fromDomain(User _) {
+    return UserDTO(
+      id: _.id.getOrCrash(),
+      email: _.email.getOrCrash(),
+      userToken: _.userToken.getOrCrash(),
     );
   }
+
+  factory UserDTO.fromJson(Map<String, dynamic> json) =>
+      _$UserDTOFromJson(json);
 
   User toDomain() {
     return User(
@@ -32,7 +35,4 @@ class UserDto with _$UserDto {
       userToken: UserToken(userToken),
     );
   }
-
-  factory UserDto.fromJson(Map<String, dynamic> json) =>
-      _$UserDtoFromJson(json);
 }

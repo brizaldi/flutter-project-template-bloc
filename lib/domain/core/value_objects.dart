@@ -40,9 +40,6 @@ abstract class ValueObject<T> {
 }
 
 class UniqueId extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
-
   factory UniqueId(String uniqueId) {
     return UniqueId._(
       validateStringNotEmpty(uniqueId),
@@ -58,4 +55,7 @@ class UniqueId extends ValueObject<String> {
   factory UniqueId.empty() => UniqueId('-');
 
   const UniqueId._(this.value);
+
+  @override
+  final Either<ValueFailure<String>, String> value;
 }

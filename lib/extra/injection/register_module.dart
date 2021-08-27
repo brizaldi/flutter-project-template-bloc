@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
@@ -45,9 +44,4 @@ abstract class RegisterModule {
 
   @lazySingleton
   FirebaseAnalytics get firebaseAnalytics => FirebaseAnalytics();
-
-  /// Initialize the [FlutterLocalNotificationsPlugin] package.
-  @lazySingleton
-  FlutterLocalNotificationsPlugin get flutterLocalNotificationsPlugin =>
-      FlutterLocalNotificationsPlugin();
 }
