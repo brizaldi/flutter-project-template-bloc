@@ -16,8 +16,12 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<SignOutBloc>(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => getIt<SignOutBloc>(),
+        ),
+      ],
       child: BlocConsumer<SignOutBloc, SignOutState>(
         listenWhen: (p, c) =>
             p.signOutFailureOrSuccessOption != c.signOutFailureOrSuccessOption,

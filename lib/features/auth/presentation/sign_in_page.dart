@@ -35,7 +35,7 @@ class SignInPage extends StatelessWidget {
                 ),
               ),
               (_) {
-                context.router.replace(const HomeRoute());
+                context.replaceRoute(const HomeRouter());
               },
             ),
           );
