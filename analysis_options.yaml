@@ -6,6 +6,7 @@ analyzer:
     - lib/**/*.config.dart
     - lib/**/*.g.dart
     - lib/**/*.freezed.dart
+    - test/**/*.mocks.dart
 
   errors:
     # Allow having TODOs in the code.
