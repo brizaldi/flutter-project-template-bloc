@@ -13,7 +13,7 @@ class BuildConfig {
 
   const BuildConfig._development()
       : this._(
-          baseUrl: 'https://...',
+          baseUrl: 'https://6128855786a213001729f948.mockapi.io/api/v1/',
           socketUrl: '',
           connectTimeout: 20000,
           receiveTimeout: 20000,
@@ -22,7 +22,7 @@ class BuildConfig {
 
   const BuildConfig._staging()
       : this._(
-          baseUrl: 'https://...',
+          baseUrl: 'https://6128855786a213001729f948.mockapi.io/api/v1/',
           socketUrl: '',
           connectTimeout: 20000,
           receiveTimeout: 20000,
@@ -31,7 +31,7 @@ class BuildConfig {
 
   const BuildConfig._release()
       : this._(
-          baseUrl: 'https://...',
+          baseUrl: 'https://6128855786a213001729f948.mockapi.io/api/v1/',
           socketUrl: '',
           connectTimeout: 20000,
           receiveTimeout: 20000,

@@ -14,11 +14,16 @@ abstract class Env {
           .invokeMethod<String>('getFlavor')
           .then((flavor) async {
         BuildConfig.init(flavor: flavor);
-      }).catchError((Object error) {});
+      }).catchError((error) {
+        print('Cannot get flavor');
+        print(error);
+      });
 
       Themes.initUiOverlayStyle();
 
       await configureDependencies();
+      _configureDio();
+
       final app = await onCreate();
 
       runApp(
@@ -33,6 +38,19 @@ abstract class Env {
       print(obj);
       print(stack);
     });
+  }
+
+  void _configureDio() {
+    getIt<Dio>()
+      ..options = BaseOptions(
+        connectTimeout: BuildConfig.get().connectTimeout,
+        receiveTimeout: BuildConfig.get().receiveTimeout,
+        validateStatus: (status) {
+          return true;
+        },
+        baseUrl: BuildConfig.get().baseUrl,
+      )
+      ..interceptors.add(getIt<AuthInterceptor>());
   }
 
   FutureOr<StatelessWidget> onCreate();

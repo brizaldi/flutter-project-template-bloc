@@ -19,18 +19,7 @@ abstract class RegisterModule {
   @preResolve
   @lazySingleton
   Future<Dio> get httpClient async {
-    final options = BaseOptions(
-      connectTimeout: BuildConfig.get().connectTimeout,
-      receiveTimeout: BuildConfig.get().receiveTimeout,
-      validateStatus: (status) {
-        return true;
-      },
-      baseUrl: BuildConfig.get().baseUrl,
-    );
-
-    final dio = Dio(options);
-
-    dio.interceptors.add(AuthInterceptor());
+    final dio = Dio();
 
     if (BuildConfig.get().flavor != Flavor.release) {
       dio.interceptors.add(PrettyDioLogger(

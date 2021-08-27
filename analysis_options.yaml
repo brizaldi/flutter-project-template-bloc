@@ -8,6 +8,10 @@ analyzer:
     - lib/**/*.freezed.dart
     - test/**/*.mocks.dart
 
+  strong-mode:
+    implicit-casts: true
+    implicit-dynamic: true
+
   errors:
     # Allow having TODOs in the code.
     todo: ignore
