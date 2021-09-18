@@ -1,41 +1,39 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../core/infrastructure/exceptions.dart';
 import '../domain/auth_failure.dart';
 import '../domain/i_auth_repository.dart';
 import '../domain/value_objects.dart';
-import 'auth_local_service.dart';
 import 'auth_remote_service.dart';
+import 'credentials_storage/credentials_storage.dart';
 
 @LazySingleton(as: IAuthRepository)
 class AuthRepository implements IAuthRepository {
   AuthRepository(
-    this._localService,
+    this._credentialsStorage,
     this._remoteService,
   );
 
-  final IAuthLocalService _localService;
+  final CredentialsStorage _credentialsStorage;
   final IAuthRemoteService _remoteService;
 
   @override
-  Future<bool> getSignedInStatus() async {
-    final token = await _localService.getCachedToken();
-    return token != null;
-  }
+  Future<bool> isSignedIn() =>
+      getSignedInCredentials().then((credentials) => credentials != null);
 
   @override
   Future<Either<AuthFailure, Unit>> signOut() async {
     try {
       await _remoteService.signOut();
-      await _localService.clearCachedToken();
-
-      return right(unit);
     } on RestApiException catch (e) {
-      return left(AuthFailure.server(
-        errorCode: e.errorCode,
-      ));
+      return left(AuthFailure.server(errorCode: e.errorCode));
+    } on NoConnectionException {
+      // Ignoring
     }
+
+    return _clearCredentialsStorage();
   }
 
   @override
@@ -63,7 +61,7 @@ class AuthRepository implements IAuthRepository {
 
       return authResponse.when(
         withToken: (token) async {
-          await _localService.cacheToken(token);
+          await _credentialsStorage.save(token);
           return right(unit);
         },
         noConnection: () => left(const AuthFailure.noConnection()),
@@ -76,6 +74,28 @@ class AuthRepository implements IAuthRepository {
       return left(AuthFailure.server(
         errorCode: e.errorCode,
       ));
+    } on NoConnectionException {
+      return left(const AuthFailure.noConnection());
+    }
+  }
+
+  @override
+  Future<String?> getSignedInCredentials() async {
+    try {
+      final storedCredentials = await _credentialsStorage.read();
+
+      return storedCredentials;
+    } on PlatformException {
+      return null;
+    }
+  }
+
+  Future<Either<AuthFailure, Unit>> _clearCredentialsStorage() async {
+    try {
+      await _credentialsStorage.clear();
+      return right(unit);
+    } on PlatformException {
+      return left(const AuthFailure.storage());
     }
   }
 }

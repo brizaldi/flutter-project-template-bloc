@@ -1,23 +1,25 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
-import 'auth_local_service.dart';
+import '../domain/i_auth_repository.dart';
 
 @injectable
 class AuthInterceptor extends Interceptor {
-  AuthInterceptor(this._localService);
+  AuthInterceptor(this._repository);
 
-  final IAuthLocalService _localService;
+  final IAuthRepository _repository;
 
   @override
   Future onRequest(
     RequestOptions options,
     RequestInterceptorHandler handler,
   ) async {
-    final token = await _localService.getCachedToken();
+    final storedCredentials = await _repository.getSignedInCredentials();
     final modifiedOptions = options
       ..headers.addAll(
-        token == null ? {} : {'Authorization': 'bearer $token'},
+        storedCredentials == null
+            ? {}
+            : {'Authorization': 'bearer $storedCredentials'},
       );
     handler.next(modifiedOptions);
   }

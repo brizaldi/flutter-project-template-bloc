@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
@@ -9,6 +10,11 @@ import '../constants/strings.dart';
 
 @module
 abstract class RegisterModule {
+  @lazySingleton
+  FlutterSecureStorage get flutterSecureStorage {
+    return const FlutterSecureStorage();
+  }
+
   @preResolve
   @lazySingleton
   Future<Box> get openBox async {

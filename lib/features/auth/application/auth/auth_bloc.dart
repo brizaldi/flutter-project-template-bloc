@@ -23,7 +23,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   ) async* {
     yield* event.map(
       authCheckRequested: (e) async* {
-        final isSignedIn = await _authRepository.getSignedInStatus();
+        final isSignedIn = await _authRepository.isSignedIn();
         if (isSignedIn) {
           yield const AuthState.authenticated();
         } else {

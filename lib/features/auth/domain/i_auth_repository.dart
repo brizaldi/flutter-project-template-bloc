@@ -4,7 +4,7 @@ import 'auth_failure.dart';
 import 'value_objects.dart';
 
 abstract class IAuthRepository {
-  Future<bool> getSignedInStatus();
+  Future<bool> isSignedIn();
 
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword({
     required Email email,
@@ -17,4 +17,6 @@ abstract class IAuthRepository {
   });
 
   Future<Either<AuthFailure, Unit>> signOut();
+
+  Future<String?> getSignedInCredentials();
 }

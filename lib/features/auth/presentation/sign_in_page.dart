@@ -28,7 +28,7 @@ class SignInPage extends StatelessWidget {
               (failure) => AlertHelper.showSnackBar(
                 context,
                 message: failure.map(
-                  cache: (_) => LocaleKeys.cacheUserError.tr(),
+                  storage: (_) => LocaleKeys.storageError.tr(),
                   server: (value) =>
                       value.message ?? LocaleKeys.serverError.tr(),
                   noConnection: (_) => LocaleKeys.noConnectionError.tr(),

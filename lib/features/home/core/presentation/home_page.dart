@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
             (failure) => AlertHelper.showSnackBar(
               context,
               message: failure.map(
-                cache: (_) => LocaleKeys.deleteCacheUserError.tr(),
+                storage: (_) => LocaleKeys.storageError.tr(),
                 server: (_) => LocaleKeys.serverError.tr(),
                 noConnection: (_) => LocaleKeys.noConnectionError.tr(),
               ),

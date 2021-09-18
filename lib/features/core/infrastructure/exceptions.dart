@@ -6,4 +6,6 @@ class RestApiException implements Exception {
   final int? errorCode;
 }
 
+class NoConnectionException implements Exception {}
+
 class UnknownException implements Exception {}

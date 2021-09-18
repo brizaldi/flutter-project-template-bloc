@@ -1,8 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../extra/utils/logging.dart';
-import '../../core/domain/exceptions.dart';
 import '../../core/infrastructure/dio_extensions.dart';
 import '../../core/infrastructure/exceptions.dart';
 import 'auth_response.dart';
@@ -23,15 +21,17 @@ class AuthRemoteService implements IAuthRemoteService {
   final Dio _dio;
 
   @override
-  Future<void> signOut() {
+  Future<void> signOut() async {
     try {
-      return Future.delayed(const Duration(seconds: 1), () {
-        return;
-      });
-    } catch (e, s) {
-      Log.severe(e.toString());
-      Log.severe(s.toString());
-      throw ServerException();
+      await _dio.get('logout');
+    } on DioError catch (e) {
+      if (e.isNoConnectionError) {
+        throw NoConnectionException();
+      } else if (e.response != null) {
+        throw RestApiException(e.response?.statusCode);
+      } else {
+        rethrow;
+      }
     }
   }
 
