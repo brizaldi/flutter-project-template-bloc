@@ -15,12 +15,14 @@ class AuthInterceptor extends Interceptor {
     RequestInterceptorHandler handler,
   ) async {
     final storedCredentials = await _repository.getSignedInCredentials();
+
     final modifiedOptions = options
       ..headers.addAll(
         storedCredentials == null
-            ? {}
-            : {'Authorization': 'bearer $storedCredentials'},
+            ? <String, String>{}
+            : <String, String>{'Authorization': 'bearer $storedCredentials'},
       );
+
     handler.next(modifiedOptions);
   }
 }

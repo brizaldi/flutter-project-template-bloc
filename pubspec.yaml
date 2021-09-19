@@ -64,9 +64,6 @@ dependencies:
   #* Date Time util
   jiffy: ^4.1.0
 
-  #* Linter
-  very_good_analysis: ^2.3.0
-
   #* Misc
   dartz: ^0.10.0
   money2: ^2.2.1

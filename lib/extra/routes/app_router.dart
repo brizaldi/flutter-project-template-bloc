@@ -8,18 +8,18 @@ import '../../features/splash/presentation/splash_page.dart';
 
 @AdaptiveAutoRouter(
   replaceInRouteName: 'Page,Route',
-  routes: <AutoRoute>[
-    AutoRoute(page: SplashPage, initial: true),
-    AutoRoute(
+  routes: <AutoRoute<dynamic>>[
+    AutoRoute<dynamic>(page: SplashPage, initial: true),
+    AutoRoute<dynamic>(
       name: 'HomeRouter',
       page: HomeWrapperPage,
       children: [
-        AutoRoute(path: '', page: HomePage),
-        AutoRoute(path: 'counter', page: CounterPage),
+        AutoRoute<dynamic>(path: '', page: HomePage),
+        AutoRoute<dynamic>(path: 'counter', page: CounterPage),
         RedirectRoute(path: '*', redirectTo: ''),
       ],
     ),
-    AutoRoute(page: SignInPage),
+    AutoRoute<dynamic>(page: SignInPage),
   ],
 )
 class $AppRouter {}
