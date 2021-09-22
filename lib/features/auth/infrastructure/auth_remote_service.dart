@@ -25,7 +25,7 @@ class AuthRemoteService implements IAuthRemoteService {
     try {
       await _dio.get<dynamic>('logout');
     } on DioError catch (e) {
-      if (e.isNoConnectionError) {
+      if (e.isNoConnectionError || e.isConnectionTimeout) {
         throw NoConnectionException();
       } else if (e.response != null) {
         throw RestApiException(e.response?.statusCode);
@@ -68,12 +68,12 @@ class AuthRemoteService implements IAuthRemoteService {
         );
       }
     } on DioError catch (e) {
-      if (e.isNoConnectionError) {
+      if (e.isNoConnectionError || e.isConnectionTimeout) {
         return const AuthResponse.noConnection();
       } else if (e.response != null) {
         throw RestApiException(e.response?.statusCode);
       } else {
-        rethrow;
+        throw RestApiException(e.response?.statusCode);
       }
     }
   }
