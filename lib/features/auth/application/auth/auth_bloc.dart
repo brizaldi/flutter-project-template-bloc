@@ -13,23 +13,22 @@ part 'auth_state.dart';
 
 @injectable
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  AuthBloc(this._authRepository) : super(const _Initial());
+  AuthBloc(this._authRepository) : super(const _Initial()) {
+    on<AuthEvent>((event, emit) async {
+      await event.when(
+        authCheckRequested: () => authCheckRequested(emit),
+      );
+    });
+  }
 
   final IAuthRepository _authRepository;
 
-  @override
-  Stream<AuthState> mapEventToState(
-    AuthEvent event,
-  ) async* {
-    yield* event.map(
-      authCheckRequested: (e) async* {
-        final isSignedIn = await _authRepository.isSignedIn();
-        if (isSignedIn) {
-          yield const AuthState.authenticated();
-        } else {
-          yield const AuthState.unauthenticated();
-        }
-      },
-    );
+  Future<void> authCheckRequested(Emitter<AuthState> emit) async {
+    final isSignedIn = await _authRepository.isSignedIn();
+    if (isSignedIn) {
+      emit(const AuthState.authenticated());
+    } else {
+      emit(const AuthState.unauthenticated());
+    }
   }
 }

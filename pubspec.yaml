@@ -16,7 +16,7 @@ dependencies:
 
   #* UI
   cached_network_image: ^3.1.0
-  flash: ^2.0.1
+  flash: ^2.0.2
   flutter_keyboard_visibility: ^5.0.3
   google_fonts: ^2.1.0
 
@@ -38,14 +38,15 @@ dependencies:
 
   #* Dart data class
   freezed_annotation: ^0.14.3
-  json_serializable: ^5.0.1
+  json_serializable: ^5.0.2
 
   #* Dependency injection
   get_it: ^7.2.0
   injectable: ^1.5.0
 
   #* State management
-  flutter_bloc: ^7.2.0
+  bloc_concurrency: ^0.1.0
+  flutter_bloc: ^7.3.0
   flutter_hooks: ^0.18.0
 
   #* Logging

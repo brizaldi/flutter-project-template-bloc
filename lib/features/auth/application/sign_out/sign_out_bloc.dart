@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -14,30 +15,30 @@ part 'sign_out_state.dart';
 
 @injectable
 class SignOutBloc extends Bloc<SignOutEvent, SignOutState> {
-  SignOutBloc(this._authRepository) : super(SignOutState.initial());
+  SignOutBloc(this._authRepository) : super(SignOutState.initial()) {
+    on<SignOutEvent>(
+      (event, emit) async {
+        await event.when(
+          signedOut: () => signedOut(emit),
+        );
+      },
+      transformer: droppable(),
+    );
+  }
 
   final IAuthRepository _authRepository;
 
-  @override
-  Stream<SignOutState> mapEventToState(
-    SignOutEvent event,
-  ) async* {
-    yield* event.map(
-      signedOut: (e) async* {
-        Either<AuthFailure, Unit> failureOrSuccess;
+  Future<void> signedOut(Emitter<SignOutState> emit) async {
+    emit(state.copyWith(
+      isLoading: true,
+      signOutFailureOrSuccessOption: none(),
+    ));
 
-        yield state.copyWith(
-          isLoading: true,
-          signOutFailureOrSuccessOption: none(),
-        );
+    final failureOrSuccess = await _authRepository.signOut();
 
-        failureOrSuccess = await _authRepository.signOut();
-
-        yield state.copyWith(
-          isLoading: false,
-          signOutFailureOrSuccessOption: optionOf(failureOrSuccess),
-        );
-      },
-    );
+    emit(state.copyWith(
+      isLoading: false,
+      signOutFailureOrSuccessOption: optionOf(failureOrSuccess),
+    ));
   }
 }

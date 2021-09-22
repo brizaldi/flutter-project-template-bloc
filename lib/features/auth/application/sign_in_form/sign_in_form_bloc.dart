@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -15,57 +16,68 @@ part 'sign_in_form_state.dart';
 
 @injectable
 class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
-  SignInFormBloc(this._authRepository) : super(SignInFormState.initial());
-
-  final IAuthRepository _authRepository;
-
-  @override
-  Stream<SignInFormState> mapEventToState(
-    SignInFormEvent event,
-  ) async* {
-    yield* event.map(
-      emailChanged: (e) async* {
-        yield state.copyWith(
-          email: Email(e.emailStr),
-          authFailureOrSuccessOption: none(),
+  SignInFormBloc(this._authRepository) : super(SignInFormState.initial()) {
+    on<SignInFormEvent>(
+      (event, emit) async {
+        await event.when(
+          emailChanged: (emailStr) => emailChanged(emit, emailStr),
+          passwordChanged: (passwordStr) => passwordChanged(emit, passwordStr),
+          registerWithEmailAndPasswordPressed: () =>
+              performActionOnAuthRepositoryWithEmailAndPassword(
+            emit,
+            _authRepository.registerWithEmailAndPassword,
+          ),
+          signInWithEmailAndPasswordPressed: () =>
+              performActionOnAuthRepositoryWithEmailAndPassword(
+            emit,
+            _authRepository.signInWithEmailAndPassword,
+          ),
         );
       },
-      passwordChanged: (e) async* {
-        yield state.copyWith(
-          password: Password(e.passwordStr),
-          authFailureOrSuccessOption: none(),
-        );
-      },
-      registerWithEmailAndPasswordPressed: (e) async* {
-        yield* _performActionOnAuthRepositoryWithEmailAndPassword(
-          _authRepository.registerWithEmailAndPassword,
-        );
-      },
-      signInWithEmailAndPasswordPressed: (e) async* {
-        yield* _performActionOnAuthRepositoryWithEmailAndPassword(
-          _authRepository.signInWithEmailAndPassword,
-        );
-      },
+      transformer: droppable(),
     );
   }
 
-  Stream<SignInFormState> _performActionOnAuthRepositoryWithEmailAndPassword(
+  final IAuthRepository _authRepository;
+
+  FutureOr<void> emailChanged(
+    Emitter<SignInFormState> emit,
+    String emailStr,
+  ) {
+    emit(state.copyWith(
+      email: Email(emailStr),
+      authFailureOrSuccessOption: none(),
+    ));
+  }
+
+  FutureOr<void> passwordChanged(
+    Emitter<SignInFormState> emit,
+    String passwordStr,
+  ) {
+    emit(state.copyWith(
+      password: Password(passwordStr),
+      authFailureOrSuccessOption: none(),
+    ));
+  }
+
+  Future<void> performActionOnAuthRepositoryWithEmailAndPassword(
+    Emitter<SignInFormState> emit,
     Future<Either<AuthFailure, Unit>> Function({
       required Email email,
       required Password password,
     })
         forwardedCall,
-  ) async* {
+  ) async {
     Either<AuthFailure, Unit>? failureOrSuccess;
 
     final isEmailValid = state.email.isValid();
     final isPasswordValid = state.password.isValid();
 
     if (isEmailValid && isPasswordValid) {
-      yield state.copyWith(
+      emit(state.copyWith(
         isSubmitting: true,
         authFailureOrSuccessOption: none(),
-      );
+      ));
 
       failureOrSuccess = await forwardedCall(
         email: state.email,
@@ -73,10 +85,10 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
       );
     }
 
-    yield state.copyWith(
+    emit(state.copyWith(
       isSubmitting: false,
       showErrorMessages: true,
       authFailureOrSuccessOption: optionOf(failureOrSuccess),
-    );
+    ));
   }
 }
