@@ -38,5 +38,5 @@ abstract class RegisterModule {
   }
 
   @lazySingleton
-  FirebaseAnalytics get firebaseAnalytics => FirebaseAnalytics();
+  FirebaseAnalytics get firebaseAnalytics => FirebaseAnalytics.instance;
 }
