@@ -16,8 +16,6 @@ mixin Themes {
       colorScheme: const ColorScheme.light(
         primary: Palette.primaryColor,
         secondary: Palette.secondaryColor,
-        primaryContainer: Palette.primaryDarkColor,
-        secondaryContainer: Palette.secondaryDarkColor,
         onSecondary: Palette.secondaryTextColor,
       ),
       textTheme: GoogleFonts.latoTextTheme(
@@ -32,8 +30,6 @@ mixin Themes {
       colorScheme: const ColorScheme.dark(
         primary: Palette.primaryColor,
         secondary: Palette.secondaryColor,
-        primaryContainer: Palette.primaryDarkColor,
-        secondaryContainer: Palette.secondaryDarkColor,
         onPrimary: Palette.primaryTextColor,
         onSecondary: Palette.secondaryTextColor,
       ),
