@@ -8,7 +8,6 @@ abstract class Env {
   void _init() {
     runZonedGuarded(() async {
       WidgetsFlutterBinding.ensureInitialized();
-      await EasyLocalization.ensureInitialized();
 
       await const MethodChannel('flavor')
           .invokeMethod<String>('getFlavor')
@@ -26,14 +25,7 @@ abstract class Env {
 
       final app = await onCreate();
 
-      runApp(
-        EasyLocalization(
-          supportedLocales: const [Locale('en'), Locale('id')],
-          fallbackLocale: const Locale('en'),
-          path: 'assets/translations',
-          child: app,
-        ),
-      );
+      runApp(app);
     }, (obj, stack) {
       print(obj);
       print(stack);

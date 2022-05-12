@@ -1,8 +1,7 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../../../extra/constants/strings.dart';
 import '../../../extra/injection/injection.dart';
 import '../../../extra/routes/app_router.gr.dart';
 import '../../../extra/style/style.dart';
@@ -25,10 +24,10 @@ class AppWidget extends StatelessWidget {
       child: MaterialApp.router(
         routerDelegate: _appRouter.delegate(),
         routeInformationParser: _appRouter.defaultRouteParser(),
-        onGenerateTitle: (BuildContext context) => Strings.appName,
-        localizationsDelegates: context.localizationDelegates,
-        supportedLocales: context.supportedLocales,
-        locale: context.locale,
+        onGenerateTitle: (BuildContext context) =>
+            AppLocalizations.of(context)!.appTitle,
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
         theme: Themes.lightTheme(context),
         darkTheme: Themes.darkTheme(context),
         themeMode: ThemeMode.light,

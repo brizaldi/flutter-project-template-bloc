@@ -1,8 +1,7 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../../../../extra/langs/locale_keys.g.dart';
 import '../../application/sign_in_form/sign_in_form_bloc.dart';
 
 class SignInForm extends StatelessWidget {
@@ -31,8 +30,8 @@ class SignInForm extends StatelessWidget {
                 validator: (_) =>
                     context.read<SignInFormBloc>().state.email.value.fold(
                           (f) => f.maybeMap(
-                            invalidEmail: (_) =>
-                                LocaleKeys.validEmailVerificationText.tr(),
+                            invalidEmail: (_) => AppLocalizations.of(context)!
+                                .validEmailVerificationText,
                             orElse: () => null,
                           ),
                           (_) => null,
@@ -42,7 +41,7 @@ class SignInForm extends StatelessWidget {
               TextFormField(
                 decoration: InputDecoration(
                   prefixIcon: const Icon(Icons.lock),
-                  labelText: LocaleKeys.password.tr(),
+                  labelText: AppLocalizations.of(context)!.password,
                 ),
                 obscureText: true,
                 onChanged: (value) => context
@@ -51,8 +50,8 @@ class SignInForm extends StatelessWidget {
                 validator: (_) =>
                     context.read<SignInFormBloc>().state.password.value.fold(
                           (f) => f.maybeMap(
-                            shortPassword: (_) =>
-                                LocaleKeys.shortPasswordVerificationText.tr(),
+                            shortPassword: (_) => AppLocalizations.of(context)!
+                                .shortPasswordVerificationText,
                             orElse: () => null,
                           ),
                           (_) => null,

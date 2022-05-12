@@ -1,10 +1,9 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../../extra/injection/injection.dart';
-import '../../../../extra/langs/locale_keys.g.dart';
 import '../../../../extra/routes/app_router.gr.dart';
 import '../../../auth/application/sign_out/sign_out_bloc.dart';
 import '../../../core/presentation/widgets/alert_helper.dart';
@@ -31,9 +30,10 @@ class HomePage extends StatelessWidget {
             (failure) => AlertHelper.showSnackBar(
               context,
               message: failure.map(
-                storage: (_) => LocaleKeys.storageError.tr(),
-                server: (_) => LocaleKeys.serverError.tr(),
-                noConnection: (_) => LocaleKeys.noConnectionError.tr(),
+                storage: (_) => AppLocalizations.of(context)!.storageError,
+                server: (_) => AppLocalizations.of(context)!.serverError,
+                noConnection: (_) =>
+                    AppLocalizations.of(context)!.noConnectionError,
               ),
             ),
             (_) => context.router.replace(const SignInRoute()),
