@@ -17,7 +17,7 @@ abstract class RegisterModule {
 
   @preResolve
   @lazySingleton
-  Future<Box> get openBox async {
+  Future<Box<dynamic>> get openBox async {
     await Hive.initFlutter();
     return Hive.openBox<String>(Strings.appCodeName);
   }

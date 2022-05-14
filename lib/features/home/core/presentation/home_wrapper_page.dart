@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../counter/application/counter_cubit.dart';
 
 class HomeWrapperPage extends StatelessWidget {
-  const HomeWrapperPage({Key? key}) : super(key: key);
+  const HomeWrapperPage({super.key});
 
   @override
   Widget build(BuildContext context) {

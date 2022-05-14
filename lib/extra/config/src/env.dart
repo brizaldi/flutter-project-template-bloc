@@ -14,8 +14,8 @@ abstract class Env {
           .then((flavor) async {
         BuildConfig.init(flavor: flavor);
       }).catchError((Object error) {
-        print('Cannot get flavor');
-        print(error);
+        debugPrint('Cannot get flavor');
+        debugPrint(error.toString());
       });
 
       Themes.initUiOverlayStyle();
@@ -27,8 +27,8 @@ abstract class Env {
 
       runApp(app);
     }, (obj, stack) {
-      print(obj);
-      print(stack);
+      debugPrint(obj.toString());
+      debugPrint(stack.toString());
     });
   }
 

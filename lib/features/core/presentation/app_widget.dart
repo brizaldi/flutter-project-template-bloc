@@ -8,7 +8,7 @@ import '../../../extra/style/style.dart';
 import '../../auth/application/auth/auth_bloc.dart';
 
 class AppWidget extends StatelessWidget {
-  AppWidget({Key? key}) : super(key: key);
+  AppWidget({super.key});
 
   final _appRouter = AppRouter();
 

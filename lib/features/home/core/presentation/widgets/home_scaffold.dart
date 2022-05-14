@@ -8,7 +8,7 @@ import '../../../../auth/application/sign_out/sign_out_bloc.dart';
 import '../../../counter/application/counter_cubit.dart';
 
 class HomeScaffold extends StatelessWidget {
-  const HomeScaffold({Key? key}) : super(key: key);
+  const HomeScaffold({super.key});
 
   @override
   Widget build(BuildContext context) {

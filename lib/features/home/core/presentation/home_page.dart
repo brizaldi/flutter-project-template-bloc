@@ -11,7 +11,7 @@ import '../../../core/presentation/widgets/loading_overlay.dart';
 import 'widgets/home_scaffold.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {

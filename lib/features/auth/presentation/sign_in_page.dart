@@ -11,7 +11,7 @@ import '../application/sign_in_form/sign_in_form_bloc.dart';
 import 'widgets/sign_in_scaffold.dart';
 
 class SignInPage extends StatelessWidget {
-  const SignInPage({Key? key}) : super(key: key);
+  const SignInPage({super.key});
 
   @override
   Widget build(BuildContext context) {

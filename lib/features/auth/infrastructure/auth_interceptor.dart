@@ -10,7 +10,7 @@ class AuthInterceptor extends Interceptor {
   final IAuthRepository _repository;
 
   @override
-  Future onRequest(
+  Future<void> onRequest(
     RequestOptions options,
     RequestInterceptorHandler handler,
   ) async {

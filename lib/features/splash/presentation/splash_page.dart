@@ -8,7 +8,7 @@ import '../../auth/application/auth/auth_bloc.dart';
 import '../../core/presentation/widgets/alert_helper.dart';
 
 class SplashPage extends StatelessWidget {
-  const SplashPage({Key? key}) : super(key: key);
+  const SplashPage({super.key});
 
   @override
   Widget build(BuildContext context) {
