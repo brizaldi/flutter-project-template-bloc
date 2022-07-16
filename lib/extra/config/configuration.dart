@@ -4,7 +4,6 @@ import 'dart:async';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:logging/logging.dart';
 
 import '../../features/auth/infrastructure/auth_interceptor.dart';
