@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../extra/injection/injection.dart';
-import '../../../extra/routes/app_router.gr.dart';
+import '../../../extra/routes/app_router.dart';
 import '../../../extra/style/style.dart';
 import '../../auth/application/auth/auth_bloc.dart';
 

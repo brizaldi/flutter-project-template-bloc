@@ -1,8 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../application/counter_cubit.dart';
 
+@RoutePage(name: 'CounterRoute')
 class CounterPage extends StatelessWidget {
   const CounterPage({super.key});
 
@@ -24,7 +26,7 @@ class CounterPage extends StatelessWidget {
               builder: (context, state) {
                 return Text(
                   state.toString(),
-                  style: Theme.of(context).textTheme.headline5,
+                  style: Theme.of(context).textTheme.headlineSmall,
                 );
               },
             ),

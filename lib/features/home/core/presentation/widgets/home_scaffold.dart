@@ -35,7 +35,7 @@ class HomeScaffold extends StatelessWidget {
               builder: (context, state) {
                 return Text(
                   state.toString(),
-                  style: Theme.of(context).textTheme.headline5,
+                  style: Theme.of(context).textTheme.headlineSmall,
                 );
               },
             ),

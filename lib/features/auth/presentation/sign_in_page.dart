@@ -10,6 +10,7 @@ import '../../core/presentation/widgets/loading_overlay.dart';
 import '../application/sign_in_form/sign_in_form_bloc.dart';
 import 'widgets/sign_in_scaffold.dart';
 
+@RoutePage()
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
 
@@ -36,7 +37,7 @@ class SignInPage extends StatelessWidget {
                 ),
               ),
               (_) {
-                context.replaceRoute(const HomeRouter());
+                context.replaceRoute(const HomeRoute());
               },
             ),
           );

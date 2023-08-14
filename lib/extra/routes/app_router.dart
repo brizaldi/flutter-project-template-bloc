@@ -1,25 +1,25 @@
 import 'package:auto_route/auto_route.dart';
 
-import '../../features/auth/presentation/sign_in_page.dart';
-import '../../features/home/core/presentation/home_page.dart';
-import '../../features/home/core/presentation/home_wrapper_page.dart';
-import '../../features/home/counter/presentation/counter_page.dart';
-import '../../features/splash/presentation/splash_page.dart';
+import 'app_router.gr.dart';
 
-@AdaptiveAutoRouter(
-  replaceInRouteName: 'Page,Route',
-  routes: <AutoRoute<dynamic>>[
-    AutoRoute<dynamic>(page: SplashPage, initial: true),
-    AutoRoute<dynamic>(
-      name: 'HomeRouter',
-      page: HomeWrapperPage,
-      children: [
-        AutoRoute<dynamic>(path: '', page: HomePage),
-        AutoRoute<dynamic>(path: 'counter', page: CounterPage),
+@AutoRouterConfig(replaceInRouteName: 'Page,Route')
+class AppRouter extends $AppRouter {
+  @override
+  RouteType get defaultRouteType => const RouteType.adaptive();
+
+  @override
+  List<AutoRoute> get routes => <AutoRoute>[
+        AutoRoute(page: SplashRoute.page, initial: true),
+        AutoRoute(
+          path: '/',
+          page: HomeWrapperRoute.page,
+          children: [
+            RedirectRoute(path: '', redirectTo: 'home'),
+            AutoRoute(path: 'home', page: HomeRoute.page),
+            AutoRoute(path: 'counter', page: CounterRoute.page),
+          ],
+        ),
+        AutoRoute(page: SignInRoute.page),
         RedirectRoute(path: '*', redirectTo: ''),
-      ],
-    ),
-    AutoRoute<dynamic>(page: SignInPage),
-  ],
-)
-class $AppRouter {}
+      ];
+}

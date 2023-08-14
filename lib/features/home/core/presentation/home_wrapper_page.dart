@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../counter/application/counter_cubit.dart';
 
+@RoutePage()
 class HomeWrapperPage extends StatelessWidget {
   const HomeWrapperPage({super.key});
 

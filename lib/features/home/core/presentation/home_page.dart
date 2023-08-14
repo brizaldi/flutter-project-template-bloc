@@ -10,6 +10,7 @@ import '../../../core/presentation/widgets/alert_helper.dart';
 import '../../../core/presentation/widgets/loading_overlay.dart';
 import 'widgets/home_scaffold.dart';
 
+@RoutePage(name: 'HomeRoute')
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 

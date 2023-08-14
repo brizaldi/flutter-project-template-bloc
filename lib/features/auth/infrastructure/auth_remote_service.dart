@@ -24,7 +24,7 @@ class AuthRemoteService implements IAuthRemoteService {
   Future<void> signOut() async {
     try {
       await _dio.get<dynamic>('logout');
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       if (e.isNoConnectionError || e.isConnectionTimeout) {
         throw NoConnectionException();
       } else if (e.response != null) {
@@ -67,7 +67,7 @@ class AuthRemoteService implements IAuthRemoteService {
           message: message,
         );
       }
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       if (e.isNoConnectionError || e.isConnectionTimeout) {
         return const AuthResponse.noConnection();
       } else if (e.response != null) {
