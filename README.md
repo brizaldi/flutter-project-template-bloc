@@ -1,8 +1,8 @@
 # flutter-project-template
 
 ## Requirements
-Flutter: 3.0.0
-Dart SDK: 2.17.0
+Flutter: 3.10.6
+Dart SDK: 3.0.6
 
 ## Installation
 - Add [Flutter](https://flutter.dev/docs/get-started/install 'Flutter') to your machine
