@@ -1,4 +1,4 @@
-part of configuration;
+part of '../configuration.dart';
 
 abstract class Env {
   Env() {
@@ -6,7 +6,7 @@ abstract class Env {
   }
 
   void _init() {
-    runZonedGuarded(() async {
+    unawaited(runZonedGuarded(() async {
       WidgetsFlutterBinding.ensureInitialized();
 
       BuildConfig.init(flavor: const String.fromEnvironment('flavor'));
@@ -22,7 +22,7 @@ abstract class Env {
     }, (obj, stack) {
       debugPrint(obj.toString());
       debugPrint(stack.toString());
-    });
+    }));
   }
 
   void _configureDio() {

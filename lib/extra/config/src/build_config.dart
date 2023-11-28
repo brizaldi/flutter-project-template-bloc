@@ -1,4 +1,4 @@
-part of configuration;
+part of '../configuration.dart';
 
 enum Flavor { development, staging, release }
 
@@ -50,15 +50,12 @@ class BuildConfig {
     switch (flavor) {
       case 'development':
         _instance = const BuildConfig._development();
-        break;
       case 'staging':
         _instance = const BuildConfig._staging();
-        break;
       default:
         _instance = const BuildConfig._release();
-        break;
     }
-    _initLog();
+    unawaited(_initLog());
   }
 
   static BuildConfig get() {
@@ -71,10 +68,8 @@ class BuildConfig {
       case Flavor.development:
       case Flavor.staging:
         Log.setLevel(Level.ALL);
-        break;
       case Flavor.release:
         Log.setLevel(Level.OFF);
-        break;
     }
   }
 

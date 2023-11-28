@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -43,7 +45,7 @@ class HomeScaffold extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => context.pushRoute(const CounterRoute()),
+        onPressed: () => unawaited(context.pushRoute(const CounterRoute())),
         child: const Icon(Icons.chevron_right),
       ),
     );

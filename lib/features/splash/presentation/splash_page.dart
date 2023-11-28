@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,15 +21,16 @@ class SplashPage extends StatelessWidget {
           listener: (context, state) {
             state.map(
               initial: (_) {},
-              authenticated: (_) => context.router.replace(const HomeRoute()),
+              authenticated: (_) =>
+                  unawaited(context.router.replace(const HomeRoute())),
               unauthenticated: (_) =>
-                  context.router.replace(const SignInRoute()),
+                  unawaited(context.router.replace(const SignInRoute())),
               failed: (failure) {
                 AlertHelper.showSnackBar(
                   context,
                   message: AppLocalizations.of(context)!.signInStatusError,
                 );
-                context.router.replace(const SignInRoute());
+                unawaited(context.router.replace(const SignInRoute()));
               },
             );
           },

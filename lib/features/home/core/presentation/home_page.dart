@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,7 +39,7 @@ class HomePage extends StatelessWidget {
                     AppLocalizations.of(context)!.noConnectionError,
               ),
             ),
-            (_) => context.router.replace(const SignInRoute()),
+            (_) => unawaited(context.router.replace(const SignInRoute())),
           ),
         ),
         buildWhen: (p, c) => p.isLoading != c.isLoading,
