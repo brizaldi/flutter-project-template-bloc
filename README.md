@@ -9,7 +9,7 @@ Dart SDK: 3.0.6
 - Open this project folder with Terminal/CMD
 - Ensure there's no cache/build leftover by running `flutter clean` in the Terminal
 - Run in the Terminal `flutter packages get`
-- Run in the Terminal `flutter packages pub run build_runner build --delete-conflicting-outputs`
+- Run in the Terminal `dart run build_runner build --delete-conflicting-outputs`
 
 ## Additional steps for iOS
 - Open ios folder inside Terminal/CMD
