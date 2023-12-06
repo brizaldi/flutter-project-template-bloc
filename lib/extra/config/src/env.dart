@@ -16,6 +16,8 @@ abstract class Env {
       await configureDependencies();
       _configureDio();
 
+      usePathUrlStrategy();
+
       final app = await onCreate();
 
       runApp(app);
